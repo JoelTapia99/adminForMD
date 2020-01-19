@@ -1,10 +1,12 @@
 const express = require('express');
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const router = require('./network/routes');
 const config = require('./config');
 
 var app = express();
-//app.use(bodyParser);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.listen(config.port);
 router(app);
 

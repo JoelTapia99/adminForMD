@@ -13,4 +13,22 @@ router.get('/', function(req, res){
     });
 });
 
+router.post('/', function(req, res){
+    controller.addPremios(
+        req.body.nombre,
+        req.body.descripcion,
+        req.body.costo,
+        //req.body.imagen,
+        req.body.local
+    )
+    .then(premio =>{
+        console.log(premio);
+        res.send(premio)
+    })
+    .catch(e => {
+        console.error('Ha ocurrido un Error!');
+        console.error(e);
+    });
+});
+
 module.exports = router;
