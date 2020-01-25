@@ -53,7 +53,7 @@ function deletePremios(id){
     });
 }
 
-function getOne(id){
+function getOnePremio(id){
     return new Promise((resolve, reject) => {
         if (!id){
             console.error('[PremiosController] No se pudo completar la operación');
@@ -79,6 +79,6 @@ module.exports = {
     addPremios,
     editPremios,
     deletePremios,
-    getOne,
+    getOnePremio,
     recoverPremios
 }

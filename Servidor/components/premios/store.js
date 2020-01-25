@@ -37,7 +37,7 @@ function deletePremios(id){
     });
 }
 
-function getOne(id){
+function getOnePremio(id){
     return knex('premios').where('id_premio', id).select();
 }
 
@@ -57,6 +57,6 @@ module.exports = {
     add: addPremios,
     edit: editPremios,
     del: deletePremios,
-    one: getOne,
+    one: getOnePremio,
     recover: recoverPremios
 }

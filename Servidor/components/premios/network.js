@@ -8,7 +8,7 @@ router.get('/', function(req, res){
         res.send(premiosLista);
     })
     .catch(e =>{
-        console.error('[Premios-Network] No se obtuvo la lista de premios');
+        console.error('[PremiosNetwork] No se obtuvo la lista de premios');
         console.error(e);
     });
 });
@@ -26,7 +26,7 @@ router.post('/', function(req, res){
         res.send(premio)
     })
     .catch(e => {
-        console.error('Ha ocurrido un Error!');
+        console.error('[PremiosNetwork] Ha ocurrido un Error!');
         console.error(e);
     });
 });
@@ -45,7 +45,7 @@ router.put('/:id', function(req, res){
         res.send(premio)
     })
     .catch(e => {
-        console.error('Ha ocurrido un Error!');
+        console.error('[PremiosNetwork] Ha ocurrido un Error!');
         console.error(e);
     });
 });
@@ -59,20 +59,20 @@ router.delete('/:id', function(req, res){
         res.send(premio)
     })
     .catch(e => {
-        console.error('Ha ocurrido un Error!');
+        console.error('[PremiosNetwork] Ha ocurrido un Error!');
         console.error(e);
     });
 });
 
 router.get('/:id', function(req, res){
-    controller.getOne(
+    controller.getOnePremio(
         req.params.id
     )
     .then(premio =>{
         res.send(premio);
     })
     .catch(e =>{
-        console.error('[Premios-Network] No se obtuvo el premio');
+        console.error('[PremiosNetwork] No se obtuvo el premio');
         console.error(e);
     });
 });
@@ -86,7 +86,7 @@ router.patch('/:id', function(req, res){
         res.send(premio)
     })
     .catch(e => {
-        console.error('Ha ocurrido un Error!');
+        console.error('[PremiosNetwork] Ha ocurrido un Error!');
         console.error(e);
     });
 });
