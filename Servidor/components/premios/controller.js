@@ -2,7 +2,7 @@ const store = require('./store');
 
 function getPremios(){
     return new Promise((resolve, reject) =>{
-        resolve(store.premios());
+        resolve(store.all());
     });
 }
 
@@ -19,12 +19,66 @@ function addPremios(nombre, descripcion, costo /* , imagen */, local){
             //imagen_premio: imagen,
             id_local: local
         }
-        store.add(premio)
+        store.add(premio);
         resolve(premio);
+    });
+}
+
+function editPremios(id, nombre, descripcion, costo, /*imagen,*/ local){
+    return new Promise((resolve, reject) => {
+        if(!id || !nombre || !descripcion || !costo /* || !imagen */ || !local){
+            console.error('[PremiosController] No se pudo completar la operación');
+            return reject('Datos Incorrectos');
+        }
+        const premio = {
+            nombre_premio: nombre,
+            descripcion_premio: descripcion,
+            costo_premio: costo,
+            //imagen_premio: imagen,
+            id_local: local
+        }
+        store.edit(id, premio);
+        resolve(premio);
+    });
+}
+
+function deletePremios(id){
+    return new Promise((resolve, reject) => {
+        if (!id){
+            console.error('[PremiosController] No se pudo completar la operación');
+            return reject('Datos Incorrectos');
+        }
+        store.del(id);
+        resolve({id_premio: id});
+    });
+}
+
+function getOne(id){
+    return new Promise((resolve, reject) => {
+        if (!id){
+            console.error('[PremiosController] No se pudo completar la operación');
+            return reject('Datos Incorrectos');
+        }
+        resolve(store.one(id));
+    });
+}
+
+function recoverPremios(id){
+    return new Promise((resolve, reject) => {
+        if (!id){
+            console.error('[PremiosController] No se pudo completar la operación');
+            return reject('Datos Incorrectos');
+        }
+        store.recover(id);
+        resolve({id_premio: id});
     });
 }
 
 module.exports = {
     getPremios,
-    addPremios
+    addPremios,
+    editPremios,
+    deletePremios,
+    getOne,
+    recoverPremios
 }
