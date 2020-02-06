@@ -1,0 +1,33 @@
+<div class="container" style="color: white;">
+    <h1>Aqui va la barra de busqueda</h1>
+</div>
+
+<div class="card mb-3" style="max-width: 1000px;" *ngFor="let ejemplo of ejemplos">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="../../../assets/comida.png" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8 mt-2 mb-0">
+            <form>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Descripcion: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" >
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -3,23 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
-
-import { HttpClientModule } from "@angular/common/http";
+import { FooterComponent } from './componentes/navegacion/footer/footer.component';
+import { CuponesComponent } from './componentes/cupones/cupones.component';
+import { NavbarComponent } from './componentes/navegacion/navbar/navbar.component';
+import { TicketComponent } from './componentes/ticket/ticket.component';
+import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavbarComponent,
+    FooterComponent,
+    CuponesComponent,
+    TicketComponent,
+    RecuperarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule, //importo el archivo
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
