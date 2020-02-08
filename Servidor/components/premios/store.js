@@ -1,7 +1,9 @@
 const knex = require('../../db');
 
-function getPremios(){
-    return knex('premios').select();
+function getPremios(local, bool){
+    return knex('premios').where({id_local: local, premio_eliminado: bool})
+        .select('id_premio', 'nombre_premio', 'descripcion_premio', 'costo_premio', 'imagen_premio')
+        .orderBy('id_premio', 'desc');
 }
 
 function addPremios(premio){
@@ -38,7 +40,8 @@ function deletePremios(id){
 }
 
 function getOnePremio(id){
-    return knex('premios').where('id_premio', id).select();
+    return knex('premios').where('id_premio', id)
+        .select('id_premio', 'nombre_premio', 'descripcion_premio', 'costo_premio', 'imagen_premio');
 }
 
 function recoverPremios(id){

@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
 
-router.get('/', function(req, res){
-    controller.getPremios()
+router.get('/:local/:bool', function(req, res){
+    controller.getPremios(
+        req.params.local,
+        req.params.bool
+    )
     .then(premiosLista =>{
         res.send(premiosLista);
     })

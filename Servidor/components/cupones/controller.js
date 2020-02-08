@@ -1,8 +1,8 @@
 const store = require('./store');
 
-function getCupones(){
+function getCupones(local){
     return new Promise((resolve, reject) =>{
-        resolve(store.all());
+        resolve(store.all(local));
     });
 }
 

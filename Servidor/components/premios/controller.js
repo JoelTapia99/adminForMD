@@ -1,8 +1,8 @@
 const store = require('./store');
 
-function getPremios(){
+function getPremios(local, bool){
     return new Promise((resolve, reject) =>{
-        resolve(store.all());
+        resolve(store.all(local, bool));
     });
 }
 

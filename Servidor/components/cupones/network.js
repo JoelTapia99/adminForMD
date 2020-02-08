@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
 
-router.get('/', function(req, res){
-    controller.getCupones()
+router.get('/:local', function(req, res){
+    controller.getCupones(
+        req.params.local
+    )
     .then(cuponesLista =>{
         res.send(cuponesLista);
     })
