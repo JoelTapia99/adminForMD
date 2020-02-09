@@ -8,6 +8,7 @@ import { CuponesComponent } from './componentes/cupones/cupones.component';
 import { NavbarComponent } from './componentes/navegacion/navbar/navbar.component';
 import { TicketComponent } from './componentes/ticket/ticket.component';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RecuperarComponent } from './componentes/recuperar/recuperar.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
