@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card mb-3" style="max-width: 1000px;" *ngFor="let ejemplo of ejemplos">
+<div class="container-md">
+    <div class="card mb-3" style="max-width: 100%;" *ngFor="let ejemplo of ejemplos">
         <div class="row no-gutters">
             <div class="col-md-4">
                 <img src="../../../assets/comida.png" class="card-img">
@@ -7,15 +7,15 @@
             <div class="col-md-8 mt-2 mb-0">
                 <form>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">&nbsp; Nombre: </label>
+                        <label class="col-sm-2 col-form-label">&nbsp;Nombre: </label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="padding-right: 10px;">&nbsp;Descripcion:</label>
+                        <label class="col-sm-2 col-form-label" style="padding-right: 10px;" >&nbsp;Descripcion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control">
+                            <input style="padding-left: 5px;" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">

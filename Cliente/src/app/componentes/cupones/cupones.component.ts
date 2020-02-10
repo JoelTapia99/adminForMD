@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from "@angular/material";
+import { ModalCrearComponent } from './modal-crear/modal-crear.component';
 
 @Component({
   selector: 'app-cupones',
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CuponesComponent implements OnInit {
 
-  constructor() { }
+  constructor( public dialog: MatDialog ) { }
 
   ngOnInit() {
   }
 
   ejemplos= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+  openDialog():void{
+    const dialogRef =  this.dialog.open( ModalCrearComponent, {} )
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+    })
+  }
+ 
+   
 }
