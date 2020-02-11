@@ -17,7 +17,10 @@ export class CuponesComponent implements OnInit {
   ejemplos= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   openDialog():void{
-    const dialogRef =  this.dialog.open( ModalCrearComponent, {} )
+    const dialogRef =  this.dialog.open( ModalCrearComponent, {
+      height: '650px',
+      width: '600px',
+    } )
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     })
