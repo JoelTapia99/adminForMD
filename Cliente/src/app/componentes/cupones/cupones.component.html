@@ -1,16 +1,17 @@
-<div class="card" style="width: 22rem;" class="cupones" *ngFor="let ejemplo of ejemplos">
+<div class="card" style="width: 22rem;" class="cupones" *ngFor="let premio of premios">
     <img src="../../../assets/comida.png" class="card-img-top">
     <div class="cupones-detail">
-        <h3 class="cupones-title">Nombre principal</h3>
-        <p class="cupones-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut exercitationem
-            quo beatae vero modi, facilis aliquid corporis non similique perspiciatis minima maiores, debitis ab!
-            Voluptate eaque aperiam nam et enim!</p>
-            <hr>
-            <div class="row">
-                <div class="col"><strong>Precio: </strong></div>
-                <div class="col"> <p>100 puntos</p> </div>
+        <h3 class="cupones-title">{{premio.nombre_premio}}</h3>
+        <p class="cupones-description">{{premio.descripcion_premio}}</p>
+        <hr>
+        <div class="row text-center">
+            <div class="col">
+                <strong>Precio:</strong>
             </div>
+            <div class="col">
+                <p>{{premio.costo_premio}} puntos</p>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <button type="button" class="btn btn-outline-primary" data-toggle="popover" title="titulo"

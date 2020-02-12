@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material";
 import { ModalCrearComponent } from './modal-crear/modal-crear.component';
+import { PremiosService } from '../../servicios/premios-service/premios.service';
 
 @Component({
   selector: 'app-cupones',
@@ -9,22 +10,23 @@ import { ModalCrearComponent } from './modal-crear/modal-crear.component';
 })
 export class CuponesComponent implements OnInit {
 
-  constructor( public dialog: MatDialog ) { }
+  premios: object = [];
+
+  constructor(public dialog: MatDialog, private service: PremiosService) { }
 
   ngOnInit() {
+    this.service.getPremios().subscribe(premios => {
+      this.premios = premios;
+    });
   }
 
-  ejemplos= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-  openDialog():void{
-    const dialogRef =  this.dialog.open( ModalCrearComponent, {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalCrearComponent, {
       height: '650px',
       width: '600px',
-    } )
+    })
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     })
   }
- 
-   
 }
