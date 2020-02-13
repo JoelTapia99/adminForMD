@@ -13,6 +13,7 @@ import { MaterialModule } from "./material";
 import { ModalRComponent } from './componentes/recuperar/modal-r/modal-r.component';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 import { ModalCrearComponent } from './componentes/cupones/modal-crear/modal-crear.component';
+import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModalCrearComponent } from './componentes/cupones/modal-crear/modal-cre
     ModalRComponent,
     RecuperarComponent,
     ModalCrearComponent,
+    ModalEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { ModalCrearComponent } from './componentes/cupones/modal-crear/modal-cre
   ],
   entryComponents: [
     ModalRComponent,
-    ModalCrearComponent
+    ModalCrearComponent,
+    ModalEditComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

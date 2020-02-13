@@ -4,8 +4,8 @@ const config = {
     db: {
         host: 'localhost',
         user: 'postgres',
-        password: '12345',
-        database: 'BDD-pruebas'
+        password: 'joel',
+        database: 'gameOfMD'
     }
 }
 

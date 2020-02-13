@@ -1,3 +1,7 @@
+<div class="container"  style="width: 22rem;">
+        <button type="button" class="btn btn-create btn-success" (click)="openDialogCreate()"> Crear </button>
+</div>
+
 <div class="card" style="width: 22rem;" class="cupones" *ngFor="let premio of premios">
     <img src="../../../assets/comida.png" class="card-img-top">
     <div class="cupones-detail">
@@ -15,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <button type="button" class="btn btn-outline-primary" data-toggle="popover" title="titulo"
-                data-content="contenido del del popover" (click)="openDialog()" >Editar</button>
+                    data-content="contenido del del popover" (click)="openDialogEdit()">Editar</button>
             </div>
         </div>
     </div>

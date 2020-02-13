@@ -1,22 +1,22 @@
-<h1 mat-dialog-title class="titulo">Crear componente</h1>
-<div mat-dialog-content>
+<h1 mat-dialog-title class="titulo">Editar componente</h1>
+<div mat-dialog-content class="modal-body">
     <div class="card" style="width: 100%;">
         <img class="card-img-top" src="../../../../assets/comida.png" alt="imagen de los regalos">
         <div class="card-body">
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label >Nombre: </label>
+                        <label>Nombre: </label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label >Precio: </label>
+                        <label>Precio: </label>
                         <input type="text" class="form-control ">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label >Descripción:</label>
+                        <label>Descripción:</label>
                         <textarea class="form-control" rows="5"></textarea>
                     </div>
                 </div>
@@ -27,12 +27,12 @@
 <div mat-dialog-actions>
     <div class="container-fluid">
         <div class="row">
-          <div class="col-sm">
-            <button type="button" class="btn btn-danger" (click)="onClickNo()" >Cancelar</button>
-          </div>
-          <div class="col-sm">
-            <button type="button" class="btn btn-success" [mat-dialog-close]="true" >Guardar</button>
-          </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-danger" (click)="onClickNo()">Cancelar</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-success" [mat-dialog-close]="true">Editar</button>
+            </div>
         </div>
-      </div>
+    </div>
 </div>
