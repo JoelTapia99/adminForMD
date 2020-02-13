@@ -6,10 +6,10 @@ import { RecuperarComponent } from './componentes/recuperar/recuperar.component'
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/cupones', pathMatch: 'full' },
-  { path: 'cupones', component: CuponesComponent },
-  { path: 'ticket', component: TicketComponent },
-  { path: 'recuperar', component: RecuperarComponent },
+  { path: '', redirectTo: '/premios', pathMatch: 'full' },
+  { path: 'premios', component: CuponesComponent },
+  { path: 'cupones', component: TicketComponent },
+  { path: 'recuperar', component: RecuperarComponent }
 ];
 
 @NgModule({

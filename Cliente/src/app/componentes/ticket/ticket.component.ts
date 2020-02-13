@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CuponesService } from '../../servicios/cupones-service/cupones.service';
 
 @Component({
   selector: 'app-ticket',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
 
-  constructor() { }
+  cupones: object = [];
+
+  constructor(private service: CuponesService) { }
 
   ngOnInit() {
-
+    this.service.getCupones().subscribe(cupones => {
+      this.cupones = cupones;
+    });
   }
-
-  ejemplos= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 }

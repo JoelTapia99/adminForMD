@@ -11,4 +11,8 @@ export class PremiosService {
   getPremios() {
     return this.http.get('http://localhost:3000/premios/1/false');
   }
+
+  getPremiosEliminados(){
+    return this.http.get('http://localhost:3000/premios/1/true');
+  }
 }

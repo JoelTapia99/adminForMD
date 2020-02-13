@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material";
 import { ModalRComponent } from "./modal-r/modal-r.component";
+import { PremiosService } from '../../servicios/premios-service/premios.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,13 +11,15 @@ import Swal from 'sweetalert2';
 })
 export class RecuperarComponent implements OnInit {
 
+  premios: object = [];
 
-  constructor( public dialog: MatDialog ) { }
+  constructor( public dialog: MatDialog, private service: PremiosService) { }
 
   ngOnInit() {
+    this.service.getPremiosEliminados().subscribe(premios => {
+      this.premios = premios;
+    });
   }
-
-  ejemplos= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   openDialog():void{
     const dialogRef =  this.dialog.open( ModalRComponent, {} )
