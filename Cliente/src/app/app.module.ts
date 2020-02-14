@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +11,6 @@ import { NavbarComponent } from './componentes/navegacion/navbar/navbar.componen
 import { TicketComponent } from './componentes/ticket/ticket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material";
-import { ModalRComponent } from './componentes/recuperar/modal-r/modal-r.component';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 import { ModalCrearComponent } from './componentes/cupones/modal-crear/modal-crear.component';
 import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.component';
@@ -22,7 +22,6 @@ import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.
     FooterComponent,
     CuponesComponent,
     TicketComponent,
-    ModalRComponent,
     RecuperarComponent,
     ModalCrearComponent,
     ModalEditComponent,
@@ -32,10 +31,10 @@ import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   entryComponents: [
-    ModalRComponent,
     ModalCrearComponent,
     ModalEditComponent
   ],

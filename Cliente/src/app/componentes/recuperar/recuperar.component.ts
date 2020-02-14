@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material";
-import { ModalRComponent } from "./modal-r/modal-r.component";
 import { PremiosService } from '../../servicios/premios-service/premios.service';
 import Swal from 'sweetalert2';
 
@@ -21,18 +20,10 @@ export class RecuperarComponent implements OnInit {
     });
   }
 
-  openDialog():void{
-    const dialogRef =  this.dialog.open( ModalRComponent, {} )
-    dialogRef.afterClosed().subscribe(res => {
-      console.log(res);
-      
-    })
-  }
-
   recuperarAlert(id: number){
     Swal.fire({
       title: '¿Estas seguro de recuperar?',
-      text: "aquí puede ir informacion del componente",
+      text: '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -42,13 +33,9 @@ export class RecuperarComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.service.recoverPremios(id).subscribe();
-        Swal.fire(
-          'Recuperado',
-          'mas info, si es necesario',
-          'success'
-        )
+        document.location.reload();
       }
-    })
+    });
   }
 
 }

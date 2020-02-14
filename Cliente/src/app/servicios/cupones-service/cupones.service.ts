@@ -11,4 +11,8 @@ export class CuponesService {
   getCupones() {
     return this.http.get('http://localhost:3000/cupones/1');
   }
+
+  deleteCupones(id: number){
+    return this.http.delete(`http://localhost:3000/cupones/${id}`);
+  }
 }

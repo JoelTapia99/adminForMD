@@ -1,15 +1,21 @@
 <div class="container-fluid">
-    <div class="card" style="width: 22rem;" class="cupones" *ngFor="let premio of premios">
-        <img src="../../../assets/comida.png" class="card-img-top">
-        <div class="cupones-detail">
-            <h3 class="cupones-title">{{premio.nombre_premio}}</h3>
-            <p class="cupones-description">{{premio.descripcion_premio}}</p>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <button type="button" class="btn btn-outline-danger"
-                        data-toggle="popover" title="titulo"
-                        data-content="contenido del del popover" (click)="recuperarAlert(premio.id_premio)" >Recuperar</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" *ngFor="let premio of premios">
+                <div class="card cupones" style="height: 320px;">
+                    <img src="../../../assets/comida.png" class="card-img-top">
+                    <div class="cupones-detail">
+                        <h4 class="cupones-title">{{premio.nombre_premio}}</h4>
+                        <p class="cupones-description">{{premio.descripcion_premio}}</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <button type="button" class="btn btn-outline-danger"
+                                    data-toggle="popover" title="titulo"
+                                    data-content="contenido del del popover" (click)="recuperarAlert(premio.id_premio)" >Recuperar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

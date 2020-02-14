@@ -1,26 +1,35 @@
-<h1 mat-dialog-title class="titulo">Editar componente</h1>
+<h1 mat-dialog-title class="titulo">Editar Premio</h1>
 <div mat-dialog-content class="modal-body">
-    <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="../../../../assets/comida.png" alt="imagen de los regalos">
+    <div class="card" style="width: 100%;" *ngFor="let premio of premios">
         <div class="card-body">
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label>Nombre: </label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Precio: </label>
-                        <input type="text" class="form-control ">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="imagen-input">Imagen</label>
+                            <input class="form-control-file" type="file" id="imagen-input" required>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Descripción:</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="nombre-input">Nombre</label>
+                            <input type="text" class="form-control" id="nombre-input" [(ngModel)]="premio.nombre_premio" [ngModelOptions]="{standalone: true}" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio-input">Precio</label>
+                            <input type="text" class="form-control" id="precio-input" [(ngModel)]="premio.costo_premio" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="descripcion-input">Descripción</label>
+                            <textarea class="form-control" rows="5" id="descripcion-input" [(ngModel)]="premio.descripcion_premio" [ngModelOptions]="{standalone: true}" required></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -28,10 +37,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm">
-                <button type="button" class="btn btn-danger" (click)="onClickNo()">Cancelar</button>
+                <button type="submit" class="btn btn-warning" [mat-dialog-close]="true" (click)="editarPremio()">Aceptar</button>
             </div>
             <div class="col-sm">
-                <button type="button" class="btn btn-success" [mat-dialog-close]="true">Editar</button>
+                <button type="button" class="btn btn-danger" (click)="onClickNo()">Cancelar</button>
             </div>
         </div>
     </div>

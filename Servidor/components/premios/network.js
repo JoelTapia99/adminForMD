@@ -41,7 +41,6 @@ router.put('/:id', function(req, res){
         req.body.descripcion,
         req.body.costo,
         //req.body.imagen,
-        req.body.local
     )
     .then(premio => {
         console.log(premio);

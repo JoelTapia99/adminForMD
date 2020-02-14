@@ -22,9 +22,9 @@ export class CuponesComponent implements OnInit {
     });
   }
 
-  openDialogEdit(): void {
-    const dialogRef = this.dialog.open(ModalEditComponent, {
-    })
+  openDialogEdit(id_premio: number): void {
+    this.service.recogerID(id_premio);
+    const dialogRef = this.dialog.open(ModalEditComponent, {})
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     })
@@ -50,12 +50,9 @@ export class CuponesComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.service.deletePremios(id_premio).subscribe();
-        Swal.fire(
-          'Eliminado con éxito.',
-          '',
-          'success'
-        )
+        document.location.reload();
       }
-    })
+    });
+    
   }
 }

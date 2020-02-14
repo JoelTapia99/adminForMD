@@ -15,7 +15,11 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.service.getCupones().subscribe(cupones => {
       this.cupones = cupones;
-      
     });
+  }
+
+  reclamarCupon(id_cupon: number){
+    this.service.deleteCupones(id_cupon).subscribe();
+    document.location.reload();
   }
 }
