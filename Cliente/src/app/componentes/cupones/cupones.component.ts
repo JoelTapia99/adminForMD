@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material";
 import { ModalCrearComponent } from './modal-crear/modal-crear.component';
 import { ModalEditComponent } from './modal-edit/modal-edit.component';
 import { PremiosService } from '../../servicios/premios-service/premios.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cupones',
@@ -23,8 +24,6 @@ export class CuponesComponent implements OnInit {
 
   openDialogEdit(): void {
     const dialogRef = this.dialog.open(ModalEditComponent, {
-      height: '650px',
-      width: '600px',
     })
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
@@ -33,11 +32,30 @@ export class CuponesComponent implements OnInit {
 
   openDialogCreate(): void {
     const dialogRef = this.dialog.open(ModalCrearComponent, {
-      height: '650px',
-      width: '600px',
     })
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
+    })
+  }
+
+  openDialogDelete(id_premio: number){
+    Swal.fire({
+      title: '¿Estas seguro de eliminar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, Eliminar'
+    }).then((result) => {
+      if (result.value) {
+        this.service.deletePremios(id_premio).subscribe();
+        Swal.fire(
+          'Eliminado con éxito.',
+          '',
+          'success'
+        )
+      }
     })
   }
 }

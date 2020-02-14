@@ -29,7 +29,7 @@ export class RecuperarComponent implements OnInit {
     })
   }
 
-  recuperarAlert(){
+  recuperarAlert(id: number){
     Swal.fire({
       title: '¿Estas seguro de recuperar?',
       text: "aquí puede ir informacion del componente",
@@ -41,6 +41,7 @@ export class RecuperarComponent implements OnInit {
       confirmButtonText: 'Si, Recuperar'
     }).then((result) => {
       if (result.value) {
+        this.service.recoverPremios(id).subscribe();
         Swal.fire(
           'Recuperado',
           'mas info, si es necesario',

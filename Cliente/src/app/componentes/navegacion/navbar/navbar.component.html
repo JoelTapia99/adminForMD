@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <a class="navbar-brand" routerLink="/" (click)="estadoNav=false; estado=true" >Administrador <!-- {{administrador.nombre_administrador}} saba errores--></a>
+    <a class="navbar-brand" *ngFor="let administrador of administradores" routerLink="/">{{administrador.nombre_administrador}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,22 +8,16 @@
 
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/cupones" (click)="estadoNav=true; estado=false" >Cupones</a>
+                <a class="nav-link" routerLink="/cupones" >Cupones</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/recuperar" (click)="estadoNav=false; estado=false " >Recuperar</a>
+                <a class="nav-link" routerLink="/recuperar" >Recuperar</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/premios" (click)="estadoNav=false; estado=false " >Premios</a>
+                <a class="nav-link" routerLink="/premios" >Premios</a>
             </li>
         </ul>
 
     </div>
-
-    <nav class="navbar navbar-light bg-light" *ngIf="estado">
-        <form class="form-inline">
-            <button type="button" class="btn btn-success">Crear</button>
-        </form>
-    </nav>
 
 </nav>

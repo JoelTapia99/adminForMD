@@ -1,25 +1,34 @@
-<div class="container"  style="width: 22rem;">
-        <button type="button" class="btn btn-create btn-success" (click)="openDialogCreate()"> Crear </button>
-</div>
-
-<div class="card" style="width: 22rem;" class="cupones" *ngFor="let premio of premios">
-    <img src="../../../assets/comida.png" class="card-img-top">
-    <div class="cupones-detail">
-        <h3 class="cupones-title">{{premio.nombre_premio}}</h3>
-        <p class="cupones-description">{{premio.descripcion_premio}}</p>
-        <hr>
-        <div class="row text-center">
-            <div class="col">
-                <strong>Precio:</strong>
-            </div>
-            <div class="col">
-                <p>{{premio.costo_premio}} puntos</p>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card cupones-crear" style="height: 400px;">
+                <br><br><br><br><br><br><br>
+                <div class="offset-2 col-8">
+                    <button type="button" class="btn btn-create btn-outline-dark" (click)="openDialogCreate()">Crear</button>
+                </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <button type="button" class="btn btn-outline-primary" data-toggle="popover" title="titulo"
-                    data-content="contenido del del popover" (click)="openDialogEdit()">Editar</button>
+        <div class="col-4" *ngFor="let premio of premios">
+            <div class="card cupones" style="height: 400px;">
+                <img src="../../../assets/comida.png" class="card-img-top">
+                <div class="cupones-detail">
+                    <h4 class="cupones-title">{{premio.nombre_premio}}</h4>
+                    <p class="cupones-description">{{premio.descripcion_premio}}</p>
+                    <hr>
+                    <p><strong>Precio:</strong> {{premio.costo_premio}} puntos</p>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary" (click)="openDialogEdit()">
+                                Editar
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-danger" (click)="openDialogDelete(premio.id_premio)">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

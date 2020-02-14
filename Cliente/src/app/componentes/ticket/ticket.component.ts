@@ -15,7 +15,6 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.service.getCupones().subscribe(cupones => {
       this.cupones = cupones;
-      console.log(this.cupones);
       
     });
   }

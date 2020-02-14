@@ -15,4 +15,12 @@ export class PremiosService {
   getPremiosEliminados(){
     return this.http.get('http://localhost:3000/premios/1/true');
   }
+
+  deletePremios(id: number){
+    return this.http.delete(`http://localhost:3000/premios/${id}/d`);
+  }
+
+  recoverPremios(id: number){
+    return this.http.delete(`http://localhost:3000/premios/${id}/r`);
+  }
 }

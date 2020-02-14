@@ -53,18 +53,35 @@ router.put('/:id', function(req, res){
     });
 });
 
-router.delete('/:id', function(req, res){
-    controller.deletePremios(
-        req.params.id
-    )
-    .then(premio => {
-        console.log(premio);
-        res.send(premio)
-    })
-    .catch(e => {
-        console.error('[PremiosNetwork] Ha ocurrido un Error!');
-        console.error(e);
-    });
+router.delete('/:id/:c', function(req, res){
+    if (req.params.c == 'd'){
+        controller.deletePremios(
+            req.params.id
+        )
+        .then(premio => {
+            console.log(premio);
+            res.send(premio)
+        })
+        .catch(e => {
+            console.error('[PremiosNetwork] Ha ocurrido un Error!');
+            console.error(e);
+        });
+    } else if(req.params.c == 'r'){
+        controller.recoverPremios(
+            req.params.id
+        )
+        .then(premio => {
+            console.log(premio);
+            res.send(premio)
+        })
+        .catch(e => {
+            console.error('[PremiosNetwork] Ha ocurrido un Error!');
+            console.error(e);
+        });
+    } else {
+        console.error('[PremiosNetwork] Condición Inválida!');
+    }
+    
 });
 
 router.get('/:id', function(req, res){
@@ -76,20 +93,6 @@ router.get('/:id', function(req, res){
     })
     .catch(e =>{
         console.error('[PremiosNetwork] No se obtuvo el premio');
-        console.error(e);
-    });
-});
-
-router.patch('/:id', function(req, res){
-    controller.recoverPremios(
-        req.params.id
-    )
-    .then(premio => {
-        console.log(premio);
-        res.send(premio)
-    })
-    .catch(e => {
-        console.error('[PremiosNetwork] Ha ocurrido un Error!');
         console.error(e);
     });
 });

@@ -8,9 +8,7 @@ import { AdministradoresService } from '../../../servicios/administradores-servi
 })
 export class NavbarComponent implements OnInit {
 
-  estadoNav: boolean;
-  regalos: boolean;
-  administrador: object;
+  administradores: object = [];
   
   constructor(private service: AdministradoresService) {
 
@@ -18,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAdministrador().subscribe(administrador => {
-      this.administrador = administrador[0];
+      this.administradores = administrador;
     });
   }
 }
