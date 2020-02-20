@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PremiosService } from '../../../servicios/premios-service/premios.service';
+import { ImagenesService } from '../../../servicios/imagenes-service/imagenes.service';
 
 @Component({
   selector: 'app-modal-crear',
@@ -9,27 +10,35 @@ import { PremiosService } from '../../../servicios/premios-service/premios.servi
 })
 export class ModalCrearComponent implements OnInit {
 
+  imagenes: object = [];
+
   constructor(
-    public dialogRef: MatDialogRef<ModalCrearComponent>,
     @Inject(MAT_DIALOG_DATA) public mensage: string,
-    private service: PremiosService
+    public dialogRef: MatDialogRef<ModalCrearComponent>,
+    private p_service: PremiosService,
+    private i_service: ImagenesService
   ) { }
 
   ngOnInit() {
+    this.i_service.getImagenes().subscribe(imagenes => {
+      this.imagenes = imagenes;
+    });
   }
 
   agregarPremio(){
     var input = document.getElementsByTagName('input');
     var textarea = document.getElementsByTagName('textarea');
+    var selector = document.getElementsByTagName('select');
+
     var premio = {
-      nombre: input[1].value,
+      nombre: input[0].value,
       descripcion: textarea[0].value,
-      costo: input[2].value,
-      //imagen: input[0].value,
+      costo: parseInt(input[1].value),
+      imagen: parseInt(selector[0].value),
       local: 1
     };
-    this.service.createPremios(premio).subscribe();
-    //document.location.reload();
+    this.p_service.createPremios(premio).subscribe();
+    document.location.reload();
   }
 
   onClickNo(): void{

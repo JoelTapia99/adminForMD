@@ -21,7 +21,7 @@ router.post('/', function(req, res){
         req.body.nombre,
         req.body.descripcion,
         req.body.costo,
-        //req.body.imagen,
+        req.body.imagen,
         req.body.local
     )
     .then(premio =>{
@@ -40,7 +40,7 @@ router.put('/:id', function(req, res){
         req.body.nombre,
         req.body.descripcion,
         req.body.costo,
-        //req.body.imagen,
+        req.body.imagen,
     )
     .then(premio => {
         console.log(premio);

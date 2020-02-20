@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PremiosService } from '../../../servicios/premios-service/premios.service';
+import { ImagenesService } from 'src/app/servicios/imagenes-service/imagenes.service';
 
 @Component({
   selector: 'app-modal-edit',
@@ -9,30 +10,39 @@ import { PremiosService } from '../../../servicios/premios-service/premios.servi
 })
 export class ModalEditComponent implements OnInit {
 
-  premios: object = [];
+  premios: object;
+  imagenes: object;
   
   constructor(
     public dialogRef: MatDialogRef<ModalEditComponent>,
     @Inject(MAT_DIALOG_DATA) public mensage: string,
-    private service: PremiosService
+    private p_service: PremiosService,
+    private i_service: ImagenesService
   ) { }
 
   ngOnInit() {
-    this.service.getPremio(this.service.id).subscribe(premio => {
+    this.p_service.getPremio(this.p_service.id).subscribe(premio => {
       this.premios = premio;
+    });
+
+    this.i_service.getImagenes().subscribe(imagenes => {
+      this.imagenes = imagenes;
     });
   }
 
   editarPremio(){
-    var inputs = document.getElementsByTagName('input');
+    var input = document.getElementsByTagName('input');
     var textarea = document.getElementsByTagName('textarea');
+    var selector = document.getElementsByTagName('select');
+
     var premio = {
-      nombre: inputs[1].value,
+      nombre: input[0].value,
       descripcion: textarea[0].value,
-      costo: inputs[2].value,
-      //imagen: inputs[0].value,
+      costo: parseInt(input[1].value),
+      imagen: parseInt(selector[0].value)
     };
-    this.service.editPremios(this.service.id, premio).subscribe();
+    this.p_service.editPremios(this.p_service.id, premio).subscribe();
+    document.location.reload();
   }
 
   onClickNo(): void{

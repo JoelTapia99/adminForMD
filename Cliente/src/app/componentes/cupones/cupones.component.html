@@ -1,16 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <div class="card cupones-crear" style="height: 400px;">
-                <br><br><br><br><br><br><br>
+            <div class="card cupones-crear" style="height: 350px;">
+                <br><br><br><br><br><br>
                 <div class="offset-2 col-8">
                     <button type="button" class="btn btn-create btn-outline-dark" (click)="openDialogCreate()">Crear Premio</button>
                 </div>
             </div>
         </div>
         <div class="col-4" *ngFor="let premio of premios">
-            <div class="card cupones" style="height: 400px;">
-                <img src="../../../assets/comida.png" class="card-img-top">
+            <div class="card cupones" style="height: 350px;">
+                <img src="{{premio.img_imagen}}" class="card-img-top">
                 <div class="cupones-detail">
                     <h4 class="cupones-title">{{premio.nombre_premio}}</h4>
                     <p class="cupones-description">{{premio.descripcion_premio}}</p>

@@ -19,7 +19,8 @@ export class TicketComponent implements OnInit {
   }
 
   reclamarCupon(id_cupon: number){
-    this.service.deleteCupones(id_cupon).subscribe();
+    var fechaActual = new Date();
+    this.service.deleteCupones(id_cupon, fechaActual).subscribe();
     document.location.reload();
   }
 }

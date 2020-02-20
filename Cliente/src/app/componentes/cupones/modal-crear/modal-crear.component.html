@@ -2,34 +2,37 @@
 <div mat-dialog-content>
     <div class="card" style="width: 100%;">
         <div class="card-body">
-            <form>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="imagen-input">Imagen</label>
-                            <input class="form-control-file" type="file" id="imagen-input" required>
-                        </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="imagen-selector">Selecciona el tipo de comida:</label>
+                        <select class="form-control" id="imagen-selector">
+                            <option selected disabled>- Cada tipo de comida tiene una imagen -</option>
+                            <option *ngFor="let imagen of imagenes" value="{{imagen.id_imagen}}">
+                                {{imagen.nombre_imagen}}
+                            </option>
+                        </select>
+                    </div>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="nombre-input">Nombre</label>
+                        <input type="text" class="form-control" id="nombre-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio-input">Precio</label>
+                        <input type="number" class="form-control" id="precio-input">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="nombre-input">Nombre</label>
-                            <input type="text" class="form-control" id="nombre-input" required autofocus>
-                        </div>
-                        <div class="form-group">
-                            <label for="precio-input">Precio</label>
-                            <input type="number" class="form-control" id="precio-input" required>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="descripcion-input">Descripción</label>
-                            <textarea class="form-control" rows="5" id="descripcion-input" required></textarea>
-                        </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="descripcion-input">Descripción</label>
+                        <textarea class="form-control" rows="5" id="descripcion-input"></textarea>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
@@ -37,10 +40,10 @@
     <div class="container-fluid">
         <div class="row">
           <div class="col-sm">
-            <button type="submit" class="btn btn-success" [mat-dialog-close]="true" (click)="agregarPremio()">Guardar</button>
+            <button class="btn btn-success" [mat-dialog-close]="false" (click)="agregarPremio()">Guardar</button>
           </div>
           <div class="col-sm">
-            <button type="button" class="btn btn-danger" (click)="onClickNo()">Cancelar</button>
+            <button class="btn btn-danger" (click)="onClickNo()">Cancelar</button>
           </div>
         </div>
       </div>

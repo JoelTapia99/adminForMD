@@ -17,7 +17,8 @@ router.get('/:local', function(req, res){
 
 router.delete('/:id', function(req, res){
     controller.reclaimCupones(
-        req.params.id
+        req.params.id,
+        req.body.fecha
     )
     .then(cupon => {
         console.log(cupon);

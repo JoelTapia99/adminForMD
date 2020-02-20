@@ -1,8 +1,10 @@
 const knex = require('../../db');
 
 function getPremios(local, bool){
-    return knex('premios').where({id_local: local, premio_eliminado: bool})
-        .select('id_premio', 'nombre_premio', 'descripcion_premio', 'costo_premio', 'imagen_premio')
+    return knex.from('premios')
+    .innerJoin('imagenes', 'premios.id_imagen', '=', 'imagenes.id_imagen')
+    .where({id_local: local, premio_eliminado: bool})
+        .select('id_premio', 'nombre_premio', 'descripcion_premio', 'costo_premio', 'img_imagen')
         .orderBy('id_premio', 'desc');
 }
 
@@ -40,8 +42,10 @@ function deletePremios(id){
 }
 
 function getOnePremio(id){
-    return knex('premios').where('id_premio', id)
-        .select('id_premio', 'nombre_premio', 'descripcion_premio', 'costo_premio', 'imagen_premio');
+    return knex.from('premios')
+        .innerJoin('imagenes', 'premios.id_imagen', '=', 'imagenes.id_imagen')
+        .where('id_premio', id)
+        .select('id_premio', 'nombre_premio', 'descripcion_premio', 'costo_premio', 'img_imagen');
 }
 
 function recoverPremios(id){

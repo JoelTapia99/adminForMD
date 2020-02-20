@@ -6,12 +6,14 @@ function getCupones(local){
         .innerJoin('usuarios', 'cupones.id_usuario', 'usuarios.id_usuario')
         .where({id_local: local, cupon_canjeado: false})
         .select('id_cupon', 'codigo_cupon', 'fecha_generacion_cupon', 'nombre_premio',
-            'descripcion_premio', 'imagen_premio', 'nombre_usuario')
+            'descripcion_premio', 'nombre_usuario')
         .orderBy('id_cupon');
 }
 
-function reclaimCupones(id){
-    knex('cupones').where('id_cupon', id).update({cupon_canjeado: true})
+function reclaimCupones(id, fecha){
+    knex('cupones').where('id_cupon', id).update(
+        {fecha_reclamo_cupon: fecha, cupon_canjeado: true}
+    )
     .then(() => {
         console.log('Cupón canjeado con éxito');
     })

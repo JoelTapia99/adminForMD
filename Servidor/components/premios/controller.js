@@ -6,9 +6,9 @@ function getPremios(local, bool){
     });
 }
 
-function addPremios(nombre, descripcion, costo /* , imagen */, local){
+function addPremios(nombre, descripcion, costo, imagen , local){
     return new Promise((resolve, reject) => {
-        if(!nombre || !descripcion || !costo /* || !imagen */ || !local){
+        if(!nombre || !descripcion || !costo || !imagen || !local){
             console.error('[PremiosController] No se pudo completar la operación');
             return reject('Datos Incorrectos');
         }
@@ -16,7 +16,7 @@ function addPremios(nombre, descripcion, costo /* , imagen */, local){
             nombre_premio: nombre,
             descripcion_premio: descripcion,
             costo_premio: costo,
-            //imagen_premio: imagen,
+            id_imagen: imagen,
             id_local: local
         }
         store.add(premio);
@@ -24,9 +24,9 @@ function addPremios(nombre, descripcion, costo /* , imagen */, local){
     });
 }
 
-function editPremios(id, nombre, descripcion, costo, /*imagen,*/ local){
+function editPremios(id, nombre, descripcion, costo, imagen){
     return new Promise((resolve, reject) => {
-        if(!id || !nombre || !descripcion || !costo /* || !imagen */){
+        if(!id || !nombre || !descripcion || !costo || !imagen){
             console.error('[PremiosController] No se pudo completar la operación');
             return reject('Datos Incorrectos');
         }
@@ -34,7 +34,7 @@ function editPremios(id, nombre, descripcion, costo, /*imagen,*/ local){
             nombre_premio: nombre,
             descripcion_premio: descripcion,
             costo_premio: costo,
-            //imagen_premio: imagen,
+            id_imagen: imagen,
         }
         store.edit(id, premio);
         resolve(premio);

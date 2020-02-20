@@ -12,7 +12,7 @@ export class CuponesService {
     return this.http.get('http://localhost:3000/cupones/1');
   }
 
-  deleteCupones(id: number){
-    return this.http.delete(`http://localhost:3000/cupones/${id}`);
+  deleteCupones(id: number, fecha: Date){
+    return this.http.delete(`http://localhost:3000/cupones/${id}/${fecha}`);
   }
 }

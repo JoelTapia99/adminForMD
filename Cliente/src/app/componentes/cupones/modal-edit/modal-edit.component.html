@@ -6,10 +6,18 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <label for="imagen-input">Imagen</label>
-                            <input class="form-control-file" type="file" id="imagen-input" required>
+                            <label for="imagen-selector">Selecciona el tipo de comida:</label>
+                            <select class="form-control" id="imagen-selector">
+                                <option selected disabled>- Cada tipo de comida tiene una imagen -</option>
+                                <option *ngFor="let imagen of imagenes" value="{{imagen.id_imagen}}">
+                                    {{imagen.nombre_imagen}}
+                              </option>
+                            </select>
                         </div>
-                    </div>
+                        <div class="alert alert-danger" role="alert">
+                            No olvides elegir el tipo de comida
+                        </div>
+                    </div>  
                 </div>
                 <div class="row">
                     <div class="col">
@@ -37,7 +45,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm">
-                <button type="submit" class="btn btn-warning" [mat-dialog-close]="true" (click)="editarPremio()">Aceptar</button>
+                <button type="submit" class="btn btn-success" [mat-dialog-close]="false" (click)="editarPremio()">Aceptar</button>
             </div>
             <div class="col-sm">
                 <button type="button" class="btn btn-danger" (click)="onClickNo()">Cancelar</button>

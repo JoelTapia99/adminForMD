@@ -25,6 +25,9 @@
                           <div class="col">
                             <p class="card-text">Usuario: {{ cupon.nombre_usuario }}</p>
                           </div>
+                          <div class="col">
+                            <p class="card-text">Generado el: {{ cupon.fecha_generacion_cupon }}</p>
+                          </div>
                       </div>
                       <p class="card-text">Descripción: {{ cupon.descripcion_premio }}</p>
                       <button type="button" class="btn btn-success" (click)="reclamarCupon(cupon.id_cupon)">Reclamar!</button>

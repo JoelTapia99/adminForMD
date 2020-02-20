@@ -6,13 +6,13 @@ function getCupones(local){
     });
 }
 
-function reclaimCupones(id){
+function reclaimCupones(id, fecha){
     return new Promise((resolve, reject) => {
         if (!id){
             console.error('[CuponesController] No se pudo completar la operación');
             return reject('Datos Incorrectos');
         }
-        store.reclaim(id);
+        store.reclaim(id, fecha);
         resolve({id_cupon: id});
     });
 }
