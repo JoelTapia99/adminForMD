@@ -5,7 +5,11 @@ function getAdministradores(){
 }
 
 function getOneAdministrador(id){
-    return knex('administradores').where('id_administrador', id).select();
+    return knex.from('administradores')
+        .innerJoin('locales', 'administradores.id_local', '=', 'locales.id_local')
+        .innerJoin('paises', 'locales.id_pais', '=', 'paises.id_pais')
+        .where('id_administrador', id)
+        .select();
 }
 
 module.exports = {

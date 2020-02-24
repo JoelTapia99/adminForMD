@@ -15,6 +15,10 @@ export class NavbarComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getAdministradores();
+  }
+
+  getAdministradores(): void{
     this.service.getAdministrador().subscribe(administrador => {
       this.administradores = administrador;
     });

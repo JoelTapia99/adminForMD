@@ -6,7 +6,7 @@ function getCupones(local){
         .innerJoin('usuarios', 'cupones.id_usuario', 'usuarios.id_usuario')
         .where({id_local: local, cupon_canjeado: false})
         .select('id_cupon', 'codigo_cupon', 'fecha_generacion_cupon', 'nombre_premio',
-            'descripcion_premio', 'nombre_usuario')
+            'descripcion_premio', 'costo_premio', 'nombre_usuario', 'celular_user')
         .orderBy('id_cupon');
 }
 

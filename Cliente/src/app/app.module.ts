@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './componentes/navegacion/footer/footer.component';
 import { CuponesComponent } from './componentes/cupones/cupones.component';
 import { NavbarComponent } from './componentes/navegacion/navbar/navbar.component';
 import { TicketComponent } from './componentes/ticket/ticket.component';
@@ -19,7 +18,6 @@ import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent,
     CuponesComponent,
     TicketComponent,
     RecuperarComponent,
