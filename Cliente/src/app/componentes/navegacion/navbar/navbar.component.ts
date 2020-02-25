@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdministradoresService } from '../../../servicios/administradores-service/administradores.service';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../servicios/login-service/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,9 @@ import { AdministradoresService } from '../../../servicios/administradores-servi
 })
 export class NavbarComponent implements OnInit {
 
-  administradores: object = [];
+  administrador: any;
   
-  constructor(private service: AdministradoresService) {
+  constructor(private service: LoginService, private router: Router,) {
 
    }
 
@@ -19,8 +20,12 @@ export class NavbarComponent implements OnInit {
   }
 
   getAdministradores(): void{
-    this.service.getAdministrador().subscribe(administrador => {
-      this.administradores = administrador;
-    });
+    let admin = localStorage.getItem("currentUser");
+    this.administrador = JSON.parse(admin);
+  }
+
+  cerrarSesion(): void {
+    this.service.logoutUser().subscribe(data => {});
+    this.router.navigate(['/login']);
   }
 }

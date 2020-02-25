@@ -13,6 +13,7 @@ import { MaterialModule } from "./material";
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 import { ModalCrearComponent } from './componentes/cupones/modal-crear/modal-crear.component';
 import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.
     RecuperarComponent,
     ModalCrearComponent,
     ModalEditComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

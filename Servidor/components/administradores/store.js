@@ -12,7 +12,14 @@ function getOneAdministrador(id){
         .select();
 }
 
+function loginAdministrador(email, password){
+    return knex('administradores')
+        .where({nombre_admin: email, contraseña_admin: password})
+        .select('id_administrador', 'nombre_administrador', 'id_local');
+}
+
 module.exports = {
     all: getAdministradores,
-    one: getOneAdministrador
+    one: getOneAdministrador,
+    login: loginAdministrador
 }

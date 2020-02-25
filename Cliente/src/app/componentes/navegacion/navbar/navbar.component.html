@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <a class="navbar-brand" *ngFor="let administrador of administradores" routerLink="/">
+    <a class="navbar-brand" routerLink="/">
         <strong>{{administrador.nombre_administrador | uppercase}}</strong>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -19,4 +19,5 @@
             </li>
         </ul>
     </div>
+    <button type="button" class="btn btn-outline-dark" (click)="cerrarSesion()">Cerrar Sesión</button>
 </nav>

@@ -11,11 +11,15 @@ export class PremiosService {
   constructor(private http: HttpClient) { }
 
   getPremios() {
-    return this.http.get('http://localhost:3000/premios/1/false');
+    let admin = localStorage.getItem("currentUser");
+    let admin_json = JSON.parse(admin);
+    return this.http.get(`http://localhost:3000/premios/${admin_json.id_local}/false`);
   }
 
   getPremiosEliminados(){
-    return this.http.get('http://localhost:3000/premios/1/true');
+    let admin = localStorage.getItem("currentUser");
+    let admin_json = JSON.parse(admin);
+    return this.http.get(`http://localhost:3000/premios/${admin_json.id_local}/true`);
   }
 
   createPremios(premio: object){

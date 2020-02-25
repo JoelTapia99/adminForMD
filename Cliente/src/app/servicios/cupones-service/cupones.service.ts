@@ -9,7 +9,9 @@ export class CuponesService {
   constructor(private http: HttpClient) { }
 
   getCupones() {
-    return this.http.get('http://localhost:3000/cupones/1');
+    let admin = localStorage.getItem("currentUser");
+    let admin_json = JSON.parse(admin);
+    return this.http.get(`http://localhost:3000/cupones/${admin_json.id_local}`);
   }
 
   deleteCupones(id: number, fecha: Date){
