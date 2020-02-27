@@ -14,6 +14,8 @@ import { RecuperarComponent } from './componentes/recuperar/recuperar.component'
 import { ModalCrearComponent } from './componentes/cupones/modal-crear/modal-crear.component';
 import { ModalEditComponent } from './componentes/cupones/modal-edit/modal-edit.component';
 import { LoginComponent } from './componentes/login/login.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { LoginComponent } from './componentes/login/login.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   entryComponents: [
     ModalCrearComponent,

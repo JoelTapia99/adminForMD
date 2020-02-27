@@ -12,6 +12,7 @@ export class TicketComponent implements OnInit {
 
   cupones: any;
   a: any;
+  criterioBusqueda: string;
 
   constructor(
     private c_service: CuponesService,
@@ -21,13 +22,23 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.getCupones();
     this.getAdministrador();
-    //this.generarPDF();
   }
 
   getCupones(): void{
     this.c_service.getCupones().subscribe(cupones => {
       this.cupones = cupones;
     });
+  }
+
+  getCuponesPorCodigo(): void{
+    if (this.criterioBusqueda){
+      this.c_service.getCuponesPorCodigo(this.criterioBusqueda).subscribe(cupones => {
+        this.cupones = cupones;
+      });
+    }
+    else {
+      this.getCupones();
+    }
   }
 
   getAdministrador(): void{
@@ -87,19 +98,19 @@ export class TicketComponent implements OnInit {
     doc.save(`${fecha.toLocaleDateString()}.pdf`);
   }
 
-  reclamarCupon(id_cupon: number): void{
-    var fechaActual = new Date();
-    var id: number = this.obtenerIndex(id_cupon);
-    this.c_service.deleteCupones(id_cupon, fechaActual).subscribe();
-    this.generarPDF(id, fechaActual);
-    //document.location.reload();
-  }
-
   obtenerIndex(id: number){
     for (let i = 0; i < this.cupones.length; i++){
       if (this.cupones[i].id_cupon == id){
         return this.cupones.indexOf(this.cupones[i]);
       }
     }
+  }
+
+  reclamarCupon(id_cupon: number): void{
+    var fechaActual = new Date();
+    var id: number = this.obtenerIndex(id_cupon);
+    this.c_service.deleteCupones(id_cupon, fechaActual).subscribe();
+    this.generarPDF(id, fechaActual);
+    document.location.reload();
   }
 }

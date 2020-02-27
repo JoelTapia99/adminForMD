@@ -8,6 +8,12 @@ export class CuponesService {
 
   constructor(private http: HttpClient) { }
 
+  getCuponesPorCodigo(codigo: string) {
+    let admin = localStorage.getItem("currentUser");
+    let admin_json = JSON.parse(admin);
+    return this.http.get(`http://localhost:3000/cupones/filtrado?id=${admin_json.id_local}&codigo=${codigo}`);
+  }
+
   getCupones() {
     let admin = localStorage.getItem("currentUser");
     let admin_json = JSON.parse(admin);
@@ -15,6 +21,6 @@ export class CuponesService {
   }
 
   deleteCupones(id: number, fecha: Date){
-    return this.http.delete(`http://localhost:3000/cupones/${id}/${fecha}`);
+    return this.http.put(`http://localhost:3000/cupones/${id}`, {fecha: fecha});
   }
 }

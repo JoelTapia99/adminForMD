@@ -4,11 +4,11 @@
     <div class="row">
         <div class="col-10">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Introduzca el código">
+                <input type="text" class="form-control" placeholder="Introduzca el código" [(ngModel)]="criterioBusqueda">
             </div>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-success">Buscar</button>
+            <button type="button" class="btn btn-success" (click)="getCuponesPorCodigo()">Buscar</button>
         </div>
     </div>
 </div>
@@ -19,7 +19,7 @@
             <div class="col  mb-0">
                 <div class="card">
                     <div class="card-body">
-                      <h3 class="card-title text-center">Código del Cupón: {{ cupon.codigo_cupon | uppercase}}</h3>
+                      <h3 class="card-title text-center">Código del Cupón: {{ cupon.codigo_cupon}}</h3>
                       <div class="row">
                           <div class="col">
                             <p class="card-text">Nombre: {{ cupon.nombre_premio }}</p>

@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class CuponesComponent implements OnInit {
 
+  currentPage: number = 1;
+
   premios: object = [];
 
   constructor(public dialog: MatDialog, private service: PremiosService) { }

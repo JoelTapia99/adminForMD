@@ -1,5 +1,11 @@
 const store = require('./store');
 
+function getCuponesPorCodigo(local, codigo){
+    return new Promise((resolve, reject) =>{
+        resolve(store.filtro(local, codigo));
+    });
+}
+
 function getCupones(local){
     return new Promise((resolve, reject) =>{
         resolve(store.all(local));
@@ -19,5 +25,6 @@ function reclaimCupones(id, fecha){
 
 module.exports = {
     getCupones,
-    reclaimCupones
+    reclaimCupones,
+    getCuponesPorCodigo
 }

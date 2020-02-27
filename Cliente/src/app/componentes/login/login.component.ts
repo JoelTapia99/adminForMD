@@ -31,12 +31,14 @@ export class LoginComponent implements OnInit {
       return this.authService
         .loginuser(this.user.email, this.user.password)
         .subscribe(data => {
-          this.authService.setUser(data[0]);
-          const token = data[0].id_administrador;
-          this.authService.setToken(token);
-          if(this.authService.getCurrentUser() != null){
+          if (data.length == 0){
+            this.onIsError();
+          }
+          else {
+            this.authService.setUser(data[0]);
+            const token = data[0].id_administrador;
+            this.authService.setToken(token);
             this.router.navigate(['/premios']);
-            this.isError = false;
           }
         });
     } else {
