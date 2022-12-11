@@ -18,7 +18,7 @@
   "homepage": "https://github.com/JoelTapia99/adminForMD#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "knex": "^0.20.8",
     "pg": "^7.17.1"
   }
